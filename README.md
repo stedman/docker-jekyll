@@ -45,7 +45,7 @@
 1. Start Jekyll server (from the app directory).
 
     ```sh
-    docker-compose up
+    docker-compose up -d
     ```
 
 1. Stop Jekyll server.
