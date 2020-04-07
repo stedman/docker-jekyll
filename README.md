@@ -2,14 +2,14 @@
 
 ## EVALUATION
 
-### PRO
+### Pro
 
 - Jekyll is a Static Site Generator (SSG) which is great for content that doesn't need to change for each user. Once deployed, it's dead-simple fast and secure.
 - [Jekyll has built-in support for GitHub Pages](https://help.github.com/en/github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll). They host your content for free!
 - [GitHub can host custom domains](https://help.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site). Did I mention *free*?
 - Jekyll can be run locally in a Docker container—which saves a lot of Ruby setup and configuration time. See below for details.
 
-### CON
+### Con
 
 - Contributing is okay for geeks, but may be too much for the uninitiated.
     - Content needs to be created and edited in Markdown.
@@ -18,31 +18,44 @@
 
 ## LOCAL DEVELOPMENT SETUP
 
-### REQUIREMENTS
+### Requirememts
 
 - Git
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
-### INSTALL
+### Install a new Jekyll app
 
-1. Open parent directory for your development source code.
-2. `git clone https://github.com/stedman/docker-jekyll my-jekyll-project`
-3. `cd my-jekyll-project`
-4. OPTIONAL: In the `.env` file, change `PROJECT_DIR` and/or `JEKYLL_VERSION` to suit your needs.
-5. Choose your poison to install Jekyll:
-    - Make: `make install`
-    - Docker Compose: `docker-compose -f docker-jekyll-install.yml up`
+1. Clone this repo to a local directory.
 
-### RUN
+    ```sh
+    git clone https://github.com/stedman/docker-jekyll my-jekyll-app
+    cd my-jekyll-app
+    ```
 
-1. START (choose one)
-    - Via Make/Docker: `make run`
-    - Via Docker Compose: `docker-compose up`
-2. END
-    - [ctrl-c] to end Jekyll process (and stop Docker container)
+1. OPTIONAL: In the `.env` file, change `JEKYLL_VERSION` to suit your needs.
+1. Run Docker Compose.
 
+    ```sh
+    docker-compose -f docker-compose-jekyll-new.yml up
+    ```
+
+### Build and serve an existing Jekyll app
+
+1. If you don't already have the `.env` and `docker-compose.yml` files in your Jekyll app directory, please cut and paste the contents of those files from this repo.
+1. Start Jekyll server (from the app directory).
+
+    ```sh
+    docker-compose up
+    ```
+
+1. Stop Jekyll server.
+
+    ```sh
+    docker-compose down
+    ```
 
 ## REFERENCE
-- https://jekyllrb.com/docs/
-- https://github.com/envygeeks/jekyll-docker
-- https://pages.github.com/versions/
+- [Jekyll documentation](https://jekyllrb.com/docs/)
+- [Jekyll Docker repo](https://github.com/envygeeks/jekyll-docker)
+- [GitHub Pages versions](https://pages.github.com/versions/) (GitHub's environment and dependencies)
+- [Running Jekyll in Docker](https://ddewaele.github.io/running-jekyll-in-docker/) (tutorial)

@@ -1,0 +1,14 @@
+version: "3"
+
+# Scaffold a new Jekyll app in current directory.
+# `docker-compose -f docker-compose-jekyll-new.yml up` starts the process.
+# The process terminates on its own when completed.
+services:
+  jekyll:
+    image: jekyll/jekyll:${JEKYLL_VERSION}
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/srv/jekyll
+      - ./vendor/bundle:/usr/local/bundle
+    command: jekyll new .
